@@ -1,0 +1,17 @@
+https://ethereumbuilders.gitbooks.io/guide/content/en/smart_contract_tutorials.html
+https://blockstream.com/simplicity.pdf
+https://remix.ethereum.org/#version=soljson-v0.4.18+commit.9cf6e910.js
+https://github.com/trufflesuite/truffle
+http://www.rsk.co/
+https://neo.org/competition.html
+https://www.youtube.com/watch?v=ZDAuELguhQQ
+https://www.youtube.com/watch?v=ILw-7mplRlI
+https://www.youtube.com/watch?v=tonsx0O_InA
+https://www.youtube.com/watch?v=iy2WzIol3Lw
+https://www.youtube.com/watch?v=TPz84mpBSA0
+https://www.youtube.com/watch?v=aepbnIZC4eM
+https://www.unixtimestamp.com/index.php
+https://github.com/oraclize/ethereum-examples/blob/master/solidity/KrakenPriceTicker.sol
+http://solidity.readthedocs.io/en/develop/common-patterns.html#withdrawal-from-contracts
+https://coinmarketcap.com/api/
+https://jsonpath.curiousconcept.com/
