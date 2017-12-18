@@ -15,3 +15,4 @@ https://github.com/oraclize/ethereum-examples/blob/master/solidity/KrakenPriceTi
 http://solidity.readthedocs.io/en/develop/common-patterns.html#withdrawal-from-contracts
 https://coinmarketcap.com/api/
 https://jsonpath.curiousconcept.com/
+http://dapps.oraclize.it/browser-solidity/#gist=9817193e5b05206847ed1fcd1d16bd1d&version=soljson-v0.4.19+commit.c4cbbb05.js

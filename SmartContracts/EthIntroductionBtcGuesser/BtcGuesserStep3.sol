@@ -20,7 +20,7 @@ contract BtcGuesser is usingOraclize {
 
     function updatePrice(uint delayInSeconds) payable {
         if (oraclize_getPrice("URL") > this.balance) {
-            state = "Oraclize query was NOT sent, please add some ETH to cover for the query fee";
+            state = "Oraclize query was NOT sent, please add some ETH to cover for the query fee and call updatePrice again!";
         } else {
             state = "Oraclize query was sent (delayed), standing by for the next answer";
             // Use https://jsonpath.curiousconcept.com/ to test json path
