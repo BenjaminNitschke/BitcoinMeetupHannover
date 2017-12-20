@@ -3,35 +3,40 @@ import "github.com/oraclize/ethereum-api/oraclizeAPI.sol";
 
 contract BtcGuesser is usingOraclize {
     function BtcGuesser() public {
-        usdToReach = 10000;
+        usdToReachMax = 25000;
+		usdToReachMin = 12500;
         oraclize_setProof(proofType_TLSNotary | proofStorage_IPFS);
         state = "Initialized";
-        // Every participant should send a small amount of ETH (5meth) to keep the contract alive and send out all funds to the winner
+        // Every participant should send a small amount of ETH to keep the contract alive and send out all funds to the winner
+		//Fund via: ethereum:0x1927D4294a560974f405246F4715f7fbE5d96196?amount=0.00748
+		//Qr code: 
+https://github.com/BenjaminNitschke/BitcoinMeetupHannover/tree/master/SmartContracts/EthIntroductionBtcGuesser/BitcoinMeetupSmartContractFundingAddress.png
+		//Don't forget to email me about your guess day
         //https://www.unixtimestamp.com/index.php
         guessers[0] = 0xb748f2D797a924B44888A6744C22b46F3fF3aCdB; //Benjamin
-        guessersDay[0] = 1515628800; //2018-01-11
-        guessers[1] = 0x1927D4294a560974f405246F4715f7fbE5d96196; //Another
-        guessersDay[1] = 1513987200; //2017-12-23
+        guessersDay[0] = 1515628800; //2018-02-11
+        guessers[1] = 0x9b7338526b5f4fabe15401e4ade1622b0e2042c1; //Manuel
+        guessersDay[1] = 1513987200; //2018-01-20
+		guessers[2] = 0xcac4dbc944df­cf4904dab859408ffbf730947741; //Marco
+        guessersDay[2] = 1513987200; //2018-01-18
+		guessers[3] = 0x3bfc3f5832432f978c706d5f8f9e2f0db857300b; //unknown
+		guessersDay[3] = 1513987200; //2018-01-17
         updatePrice(0); // first check at contract creation (mostly for testing)
     }
-    uint usdToReach;
+    uint usdToReachMax;
+	uint usdToReachMin;
     string public state;
-    //would be nicer via: mapping(address=>uint) guessersDay; but enumerating this is not easy: https://github.com/ethereum/dapp-bin/blob/master/library/iterable_mapping.sol
-    address[2] guessers;
-    uint[2] guessersDay;
-    
-    function getUsdToReach() public constant returns (uint) {
-        return usdToReach;
-    }
-    
+    address[4] guessers;
+    uint[4] guessersDay;
     uint public currentUsdPrice;
     
     function __callback(bytes32 myid, string result, bytes proof) {
         if (msg.sender != oraclize_cbAddress()) throw;
         currentUsdPrice = parseInt(result, 0);//cut off decimals, solidity only supports full numbers
-        if (currentUsdPrice < usdToReach) {
+        if (currentUsdPrice > usdToReachMin &&
+			currentUsdPrice < usdToReachMax) {
             state = "Price not yet reached, will check again in 24h";
-            updatePrice(60);//60*60*24); //60seconds*60minutes*24hours = once per day
+            updatePrice(60*60*24); //60seconds*60minutes*24hours = once per day
         }
         else {
             // Target price reached, go through guessers and stop when we reach date
@@ -47,8 +52,6 @@ contract BtcGuesser is usingOraclize {
             state = strConcat("Price reached, winner: ", uintToString(bestGuesserIndex));
             //https://ethereum.stackexchange.com/questions/31770/does-solidity-transfer-command-require-fee/31777
             guessers[bestGuesserIndex].transfer(this.balance);
-            // Kill receiver address to make sure we can't use it again
-            //causes invalid opcode: guessers[bestGuesserIndex] = 0;
             // And this stops the updating as we won't call updatePrice anymore (and we are out of eth)
         }
     }
