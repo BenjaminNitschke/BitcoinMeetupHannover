@@ -9,8 +9,7 @@ contract BtcGuesser is usingOraclize {
         state = "Initialized";
         // Every participant should send a small amount of ETH to keep the contract alive and send out all funds to the winner
 		//Fund via: ethereum:0x1927D4294a560974f405246F4715f7fbE5d96196?amount=0.00748
-		//Qr code: 
-https://github.com/BenjaminNitschke/BitcoinMeetupHannover/tree/master/SmartContracts/EthIntroductionBtcGuesser/BitcoinMeetupSmartContractFundingAddress.png
+		//Qr code: https://github.com/BenjaminNitschke/BitcoinMeetupHannover/tree/master/SmartContracts/EthIntroductionBtcGuesser/BitcoinMeetupSmartContractFundingAddress.png
 		//Don't forget to email me about your guess day
         //https://www.unixtimestamp.com/index.php
         guessers[0] = 0xb748f2D797a924B44888A6744C22b46F3fF3aCdB; //Benjamin
