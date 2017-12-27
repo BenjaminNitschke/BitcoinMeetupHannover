@@ -20,13 +20,17 @@ contract BtcGuesser is usingOraclize {
         guessersDay[2] = 1513987200; //2018-01-18
 		guessers[3] = 0x3bfc3f5832432f978c706d5f8f9e2f0db857300b; //unknown
 		guessersDay[3] = 1513987200; //2018-01-17
+		guessers[4] = 0x8Bdf2fB7AE659A975e22198cA6bAA4D66EF48511; //Thomas
+		guessersDay[4] = 1513987200; //2018-04-01
+		guessers[5] = 0x764A197e8d34B9c08ce26ed976F7f8694B670AF0; //Rafael
+		guessersDay[5] = 1513987200; //2018-03-03
         updatePrice(0); // first check at contract creation (mostly for testing)
     }
     uint usdToReachMax;
 	uint usdToReachMin;
     string public state;
-    address[4] guessers;
-    uint[4] guessersDay;
+    address[6] guessers;
+    uint[6] guessersDay;
     uint public currentUsdPrice;
     
     function __callback(bytes32 myid, string result, bytes proof) {
