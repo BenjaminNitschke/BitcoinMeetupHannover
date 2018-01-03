@@ -13,24 +13,26 @@ contract BtcGuesser is usingOraclize {
 		//Don't forget to email me about your guess day
         //https://www.unixtimestamp.com/index.php
         guessers[0] = 0xb748f2D797a924B44888A6744C22b46F3fF3aCdB; //Benjamin
-        guessersDay[0] = 1515628800; //2018-02-11
+        guessersDay[0] = 1518307200; //2018-02-11
         guessers[1] = 0x9b7338526b5f4fabe15401e4ade1622b0e2042c1; //Manuel
-        guessersDay[1] = 1513987200; //2018-01-20
-		guessers[2] = 0xcac4dbc944df­cf4904dab859408ffbf730947741; //Marco
-        guessersDay[2] = 1513987200; //2018-01-18
+        guessersDay[1] = 1516406400; //2018-01-20
+		guessers[2] = 0xcac4dbc944dfcf4904dab859408ffbf730947741; //Marco
+        guessersDay[2] = 1516233600; //2018-01-18
 		guessers[3] = 0x3bfc3f5832432f978c706d5f8f9e2f0db857300b; //unknown
-		guessersDay[3] = 1513987200; //2018-01-17
+		guessersDay[3] = 1516147200; //2018-01-17
 		guessers[4] = 0x8Bdf2fB7AE659A975e22198cA6bAA4D66EF48511; //Thomas
-		guessersDay[4] = 1513987200; //2018-04-01
+		guessersDay[4] = 1522540800; //2018-04-01
 		guessers[5] = 0x764A197e8d34B9c08ce26ed976F7f8694B670AF0; //Rafael
-		guessersDay[5] = 1513987200; //2018-03-03
+		guessersDay[5] = 1520035200; //2018-03-03
+		guessers[6] = 0x3d88d28D2f81e350e6c2217d54d8eA0644a0023C; //Gerd
+		guessersDay[6] = 1516060800; //2018-01-16
         updatePrice(0); // first check at contract creation (mostly for testing)
     }
     uint usdToReachMax;
 	uint usdToReachMin;
     string public state;
-    address[6] guessers;
-    uint[6] guessersDay;
+    address[7] guessers;
+    uint[7] guessersDay;
     uint public currentUsdPrice;
     
     function __callback(bytes32 myid, string result, bytes proof) {
@@ -38,7 +40,7 @@ contract BtcGuesser is usingOraclize {
         currentUsdPrice = parseInt(result, 0);//cut off decimals, solidity only supports full numbers
         if (currentUsdPrice > usdToReachMin &&
 			currentUsdPrice < usdToReachMax) {
-            state = "Price not yet reached, will check again in 24h";
+            state = "Price not reached, next check in 24h";
             updatePrice(60*60*24); //60seconds*60minutes*24hours = once per day
         }
         else {
