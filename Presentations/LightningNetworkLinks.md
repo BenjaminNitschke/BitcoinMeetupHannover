@@ -1,11 +1,29 @@
-https://lightning.network/lightning-network.pdf
+Bitcoin's Lightning Network, Simply Explained - YouTube
 https://www.youtube.com/watch?v=rrr_zPmEiME
+
+Technical details
+https://lightning.network/lightning-network.pdf
+
+Bitcoin Lightning Network — 7 Things You Should Know
 https://medium.com/@argongroup/bitcoin-lightning-network-7-things-you-should-know-604ef687af5a
+
+Lightning Developers
 http://lightning.engineering/
+
+Zap for Mac, Windows and Linux
 https://medium.com/@JimmyMow/announcing-zap-beta-release-346b5100376e
-https://github.com/lightningnetwork
-https://explorer.acinq.co/#/
+
+Zap Lightning Network Wallet Tutorial (Videos)
 https://www.youtube.com/playlist?list=PLMj6UA3-f3cRfKmG1xRm3j0KBRCvbX4vW
+
+Source code of Lightning Network
+https://github.com/lightningnetwork
+
+Lightning Network Explorer [TESTNET]
+https://explorer.acinq.co/#/
+
+Bitcoin testnet faucet to get some test bitcoins
 https://testnet.manu.backend.hamburg/faucet
-http://lntb1249230n1pdg633gpp5yyqll57652l4xxr7qx28wukkz5ngen6n4p3s6fcr6qcw2txyaegqdp8f4shyetydusy2umnv4hzqan0d5s9xctdwd6xzeccqzys25edt9carwl7td2k3lv5e44j72jmhaq3z968js4skmdp7vl5rngx7q9xa6sxgj6ntd4gwylaak330ha7z6dd5962980lunv2jhsjq0qpy9a52c/
+
+Buy some articles with lightning:
 https://yalls.org/
